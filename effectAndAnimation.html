@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects And Animations</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <h3 class="text-center mt-3">jQuery Effects And Animations</h3>
+    <div id="box1" class="container mt-3">
+        <button id="show" class="btn btn-info">Show</button>
+        <button id="hide" class="btn btn-info">Hide</button>
+        <button id="toggle" class="btn btn-info">toggle</button>
+    </div>
+    <hr>
+    <div id="box2" class="container">
+        <button id="out" class="btn btn-info ">Fade Out</button>
+        <button id="in" class="btn btn-info ">Fade In</button>
+        <button id="fadeToggle" class="btn btn-info ">Fade toggle</button>
+    </div>
+    <hr>
+    <div id="box3" class="container">
+        <button id="up" class="btn btn-info">Slide Up</button>
+        <button id="down" class="btn btn-info ">Slide Down</button>
+        <button id="slideToggle" class="btn btn-info ">Slide toggle</button>
+        <button id="stop" class="btn btn-danger ">Stop</button>
+    </div>
+    <hr>
+    <!--<div id="msgBox" class="container p-5 h-75 w-50 bg-dark text-center text-white position-relative">Hello World</div>-->
+    <hr>
+    <div id="box4" class="container">
+        <button id="left" class="btn btn-info ">Move Left</button>
+        <button id="right" class="btn btn-info ">Move Right</button>
+        <button id="around" class="btn btn-info ">Move Around</button>
+    </div>
+    <hr>
+    <div id="divBox" class=" container p-5 bg-danger" style="height: 50px; width: 50px; position: relative;"></div>
+    <hr>
+
+    <script>
+        $(document).ready(function(){
+            $('#hide').click(function(){
+                $('#msgBox').hide();
+            });
+            $('#show').click(function(){
+                $('#msgBox').show();
+            });
+            $('#toggle').click(function(){
+                $('#msgBox').toggle();
+            });
+            $('#out').click(function(){
+                $('#msgBox').fadeOut(1000, function(){
+                    $('#out').text("It's gone");             //callback function added to perform additional transition
+                });
+            });
+            $('#in').click(function(){
+                $('#msgBox').fadeIn(1000);
+            });
+            $('#fadeToggle').click(function(){
+                $('#msgBox').fadeToggle(1000);
+            });
+
+            $('#up').click(function(){
+                $('#msgBox').slideUp(1000);
+            });
+            $('#down').click(function(){
+                $('#msgBox').slideDown(1000);
+            });
+            $('#slideToggle').click(function(){
+                $('#msgBox').slideToggle(1000);
+            });
+            $('#stop').click(function(){
+                $('#msgBox').stop(1000);
+            });
+            $('#right').click(function(){
+                $('#divBox').animate({
+                    left: 500,
+                    height: "200px",
+                    width: "200px",
+                    opacity: "0.5"
+                });
+            });
+            $('#left').click(function(){
+                $('#divBox').animate({
+                    left: 0,
+                    height: "100px",
+                    width: "100px",
+                    opacity: "1"
+                });
+            });
+            $('#around').click(function(){
+                var box = $('#divBox');
+                box.animate({
+                    left: 300,
+                });
+                box.animate({
+                    top: 300,
+                });
+                box.animate({
+                    top: 300,
+                    left: 0
+                });
+                box.animate({
+                    top: 0,
+                    left: 0
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>

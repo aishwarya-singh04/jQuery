@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery-Events</title>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-3">
+        <h1 class="text-center">JQuery Events</h1>
+        <hr>
+        <h3 class="text-center">1. Mouse Events</h3>
+        <div class="box text-center p-3 mt-3 border border-dark">
+            <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, optio. Ex ullam omnis neque minima beatae voluptatem quas velit eaque dicta itaque odio dolores magnam adipisci a est, suscipit dignissimos corporis quae porro. Sequi provident, officia in repellat tempora quis iste, perferendis fuga similique inventore vero magni natus id impedit?</p>
+        </div>
+        <hr>
+        <h3 class="text-center">2. Keyboard Events</h3>
+        <ul class="list-unstyled p-3 text-center border border-muted">
+            <li>Keypress: All textual keys(a,9, etc)</li>
+            <li>Keyup: All keys</li>
+            <li>Keydown: All functional keys(f1-f9, ctrl, shift, del,insrt)</li>
+        </ul>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.box').click(function(){
+                $('.box').css('background-color','lightpink');
+            });
+
+            $('.box').dblclick(function(){
+                $(this).css('background-color','skyblue');
+            });
+
+            $('.box').contextmenu(function(){
+                $(this).css({'background-color':'orange', 'color':'white'});         //when right-click and use menu option
+            });
+
+            $('.box').mouseenter(function(){
+                $(this).css({'background-color':'grey', 'color':'white'});         //when pointer is moved inside the box
+            });
+            
+            $('.box').mouseleave(function(){
+                $(this).css({'background-color':'lightgreen', 'color':'black'});         //when pointer is moved outside the box
+            });
+
+            //keyboard ebents
+            $('body').keypress(function(){
+                $(this).css('background-color','#40e0d0');                  //event will be fired just by clicking any key
+            });
+
+            $('body').keyup(function(){                                    //event will be fired after releasing the pressed key
+                $(this).css('background-color','purple');                  
+            });
+
+            $('body').keydown(function(){                                    //
+                $(this).css('background-color','seagreen');                  
+            });
+
+
+
+        });
+    </script>
+    
+</body>
+</html>

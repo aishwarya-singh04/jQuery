@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-3">
+        <h1 class="text-center">JQuery Methods</h1>
+        <hr>
+        <h3 class="text-center">Insert | Remove</h3>
+
+    </div>
+    <ul>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+        <li>List Items</li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            $('ul').append('<li>New List Element </li>');
+            $('ul').prepend('<li>New List Element </li>');
+            $('ul').after('<p>This is a paragraph</p>');
+            $('ul').before('<p>This is a paragraph</p>');
+            $('p:last').remove();           // entire paragraph will be removed
+            $('ul').empty();                //list will be there but empty
+            $()
+        });
+    </script>
+</body>
+</html>

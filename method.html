@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        $(document).ready(function(){
+            //Getter Methods
+
+            //var a= $('.box').text();           //to get the text only
+            //var a= $('.box').html();           // entire text with tags also
+            var a= $('#myform div label').attr('class');             // to know the attributes used within the class or id
+            
+            $('#myform').submit(function(){
+                var uname= $('#username').val();
+                var pwd= $('#password').val();
+                alert("Your creadentials are: "+'\username: '+uname \n '\password: '+pwd) 
+            });
+            console.log(a);
+
+
+            //Setter Methods
+            $('setter').click(function(){
+                $('.box h3').text("Heading Changed");
+                $('.box p').html("I am changing this paragaraph <br> <a href='' class='btn btn-info'>Link</a>");
+                $('.box a').attr('href','http://google.com');
+                $('#username').val('aishwarya');
+                $('#password').val('beta-labs');            //to set the username and password
+            });
+
+            
+
+        });
+
+        
+       
+    </script>
+</body>
+</html>

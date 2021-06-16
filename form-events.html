@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery-Events</title>
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-3">
+        <h1 class="text-center">JQuery Form-Events</h1>
+        <hr>
+        <form id="myform">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <select id="age" class="form-control">
+                    <option value="">Select Age</option>
+                    <option value="age<18">age<18</option>
+                    <option value="age<40">age<40</option>
+                    <option value="age<60">age<60</option>
+                </select>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary mt-3">
+            <button class=" copy btn btn-secondary mt-3">Copy to clipboard</button>
+            
+        </form>
+        <div class="content border border-primary mt-3 p-3">
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#username, #password, #age').focus(function(){
+                $(this).css('background-color','pink');        //to focus 
+            });
+
+            $('#username, #password, #age').blur(function(){
+                $(this).css('background-color','');        //to discard focus
+            });
+
+            $('#age').change(function(){
+                var a = $(this).val();                          //copy the value in a and then displayed using html
+                $('.content').html("Your age: "+a).show().fadeOut(3000);            //to disappear after sometime
+            });
+
+            $('.copy').click(function(){
+                $('#username').select();
+                document.execCommand("copy");                   //in-built function to copy to system's clipboard
+                //alert("Data Copied: "+$('#username').val());        //to get the value of username enterd in username displayed in alert
+                $('.content').text($('#username').val()).show(5000);
+            });
+
+            $('#myform').submit(function(){
+                alert("Data submit successfully!!");            //data will be sent to the server using this function if button is not set to Submit initially
+            })
+
+
+            
+
+
+        });
+    </script>
+    
+</body>
+</html>
